@@ -1,0 +1,176 @@
+.cabecalho__menu-hamburguer {
+    width: 48px;
+    height: 48px;
+    background-image: url(/img/Menu.svg);
+    display: inline-block;
+}
+
+/*para trocar a imagem quando o menu hamburguer está aberto*/
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu-hamburguer{
+    background-image: url(/img/MenuAberto.svg);
+    background-repeat: no-repeat;
+    background-position: 30%;
+    padding: 1em 0;
+   
+}
+
+.container__botao:checked ~ .container__rotulo{
+    background: var(--azul-degrade);
+}
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /* libera ser utilizado atributos como right,letf, bottom e top. Mas nesse caso foi utilizado apenas para tirar o elemento de "static"*/
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+    padding: 1rem;
+}
+
+.lista-menu {
+    display: none;
+    position: absolute;
+    /*permite que o elemento seja movimentado de acordo com o elemento que veio antes dele ou ao elemento pai, que tenha uma posição diferente de "static", que é a posição padrão*/
+    top: 100%;
+    width: 60vw;
+}
+
+/* a pseudoclasse checked faz com que alguma ação aconteça após o elemento com "cheeckbox" ser selecionado. Ja o acento "~" é um combinador CSS que procura outro elemento posicionado após ele para realizar uma ação após o pré requisito no elemento anterior ser preenchido, nesse caso o "checked" no .container__botao faz com o ocorra uma acção no elementor .lista-menu*/
+.container__botao:checked~.lista-menu {
+    display: block;
+}
+
+.lista-menu__titulo,
+.lista-menu__item {
+    padding: 1rem;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo {
+    color: var(--amarelo-titulo);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    background:  var(--azul-degrade); /*colore todo o background dessa cor*/
+    background-clip: text; /*faz a cor do background pegar apenas onde tem texto*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+
+}
+
+.container__botao{
+    display: none;
+}
+
+/*Medias queries*/
+.container__titulo{
+    display: none;
+}
+
+.opcoes{
+    display: none;
+}
+
+.container__texto{
+    display: none;
+}
+
+        /*MEDIA QUERIES*/
+@media screen and (min-width: 1024px){
+   .container__titulo, .container__titulo--negrito{
+    font-family: var(--fonte-secundaria);
+    font-size: 30px;
+   } 
+
+   .container__titulo{
+    font-weight: 400;
+    display: block;
+   }
+
+   .container__titulo--negrito{
+    font-weight: 700;
+   }
+
+   .opcoes{
+    display: flex;
+   }
+
+   .opcoes__item{
+    padding: 0 1em;
+    text-transform: uppercase;
+   }
+
+   .opcoes__link{
+    text-decoration: none;
+    color: var(--preto);
+
+   }
+
+   .container__imagem-transparente{
+    display: none;
+   }
+
+   .cabecalho__menu-hamburguer{
+    display: none;
+   }
+
+   .opcoes__botao:checked ~ .lista-menu{
+    display: block;
+    width: auto;
+   }
+
+   .opcoes__botao{
+    display: none;
+   }
+
+   .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item{
+    background: var(--azul-degrade);
+    color: var(--branco);
+   }
+
+   .opcoes__item{
+    padding: 2em 1em;
+   }
+
+   .lista-menu__item:hover{
+    background: var(--azul-degrade);
+   }
+
+   .lista-menu__item:hover>.lista-menu__link{
+    -webkit-text-fill-color: var(--branco);
+    text-decoration: none;
+   }
+}
+
+@media screen and (min-width: 1728px){
+
+    .container__texto{
+        display: block;
+    }
+    
+    .container__link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho{
+        padding: 0 2em;
+    }
+
+    .opcoes{
+        margin-right: auto;
+    }
+}
