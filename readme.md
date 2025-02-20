@@ -1,6 +1,6 @@
 Projeto desenvolvido durante as aulas de responsividade e Mobile-First da Alura.
 
-![image]()
+![image](https://github.com/AlexandreBarross/AluraBooks/blob/main/img/imagemreadme.JPG?raw=true)
 
 ## Ferramentas utilizadas:
 * HTML
